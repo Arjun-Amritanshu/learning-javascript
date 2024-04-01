@@ -1,0 +1,27 @@
+prompt = require('prompt-sync')();
+let guess = parseInt(Math.random() * 100);
+
+let chances = 0;
+
+for (let i = 0; i < 100; i++) 
+{
+  let num = parseInt(prompt("guess the number"));
+  if (num === guess)
+  {
+    chances++;
+    console.log("you guessed the right number");
+    console.log("points=:\t" + (101 - chances));
+    break;
+  }
+  else if (num > guess)
+  {
+    chances++;
+    console.log("try a smaller number, chances remaining:\t" + (100 - chances));
+  }
+  else {
+    chances++;
+    console.log("try a greater number, chances remaining:\t" + (100 - chances));
+  }
+}
+if (chances === 100)
+  console.log("game lost, try again");
